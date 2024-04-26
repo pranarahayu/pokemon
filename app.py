@@ -6,6 +6,11 @@ import pprint as pp
 st.set_page_config(page_title='Match Center', layout='centered')
 st.title('Guess Who? - Pokemon Edition')
 
+with st.sidebar:
+  st.header("Regenerate Pokemon")
+  with st.expander("About this app"):
+    st.markdown("Guess who, but Pokemon.")
+
 idx = random.sample(range(1, 906), 30)
 
 n_cols = 6
