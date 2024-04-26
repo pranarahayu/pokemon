@@ -11,7 +11,6 @@ st.title('Guess Who? - Pokemon Edition')
 conn = st.connection("supabase",type=SupabaseConnection)
 
 with st.sidebar:
-  st.header("Regenerate Pokemon")
   if st.button('Regenerate Pokemon'):
     idx = random.sample(range(1, 906), 30)
     name = []
