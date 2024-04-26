@@ -32,14 +32,14 @@ df = df.tail(30).reset_index(drop=True)
 #fixed = "https://github.com/PokeAPI/sprites/blob/ca5a7886c10753144e6fae3b69d45a4d42a449b4/sprites/pokemon/0.png?raw=true"
 #fixed_r = requests.get(fixed)
 
-datas = df['id'].tolist()
-names = df['pokemon'].tolist()
 elim = st.multiselect("Eliminate Pokemon", names)
-
 for i in range(len(df)):
   for j in elim:
     if (df['pokemon'][i]==j):
       df['id'][i]=0
+
+datas = df['id'].tolist()
+names = df['pokemon'].tolist()
 
 data = []
 for i in datas:
