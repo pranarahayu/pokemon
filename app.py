@@ -22,3 +22,4 @@ cols = [column for row in cols_per_row for column in row]
 
 for image_index, data in enumerate(data):
     cols[image_index].image(data)
+    st.write('test aja')
