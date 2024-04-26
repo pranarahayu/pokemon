@@ -7,7 +7,6 @@ from st_supabase_connection import SupabaseConnection
 from PIL import Image
 
 st.set_page_config(page_title='Player-1 Board', layout='centered')
-st.title('Guess Who? - Pokemon Edition')
 st.markdown('# Player-1 Board')
 
 conn = st.connection("supabase",type=SupabaseConnection)
