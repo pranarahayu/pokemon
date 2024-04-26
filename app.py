@@ -28,9 +28,6 @@ rose = conn.query("*", table="temp_pokemon", ttl="10m").execute()
 df = pd.DataFrame(rose.data)
 df = df.tail(30).reset_index(drop=True)
 
-#fixed = "https://github.com/PokeAPI/sprites/blob/ca5a7886c10753144e6fae3b69d45a4d42a449b4/sprites/pokemon/0.png?raw=true"
-#fixed_r = requests.get(fixed)
-
 names = df['pokemon'].tolist()
 elim = st.multiselect("Eliminate Pokemon", names, placeholder="Choose a Pokemon(s)")
 for i in range(len(df)):
