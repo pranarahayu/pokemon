@@ -13,7 +13,7 @@ conn = st.connection("supabase",type=SupabaseConnection)
 
 col1, col2, col3 = st.columns(3)
 with col2:
-  if st.button('Regenerate Pokemon'):
+  if st.button('Re-Generate Pokemon'):
     idx = random.sample(range(1, 906), 30)
     name = []
     for i in idx:
