@@ -26,7 +26,7 @@ with col2:
     for j, k in zip(idx, name):
       conn.table("temp_pokemon").insert([{"id":j,"pokemon":k}], count="None").execute()
 
-st.markdown("### Pokémons")
+st.markdown("### Pokémon")
 rose = conn.query("*", table="temp_pokemon", ttl="10m").execute()
 df = pd.DataFrame(rose.data)
 df = df.tail(30).reset_index(drop=True)
