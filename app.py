@@ -17,6 +17,7 @@ for i in idx:
   response = requests.get(url.format(id=pokemon_id))
   data.append(response.content)
 
+for i in idx:
   url = "https://pokeapi.co/api/v2/pokemon/{}/".format(i)
   response = requests.get(url)
   data = response.json()
