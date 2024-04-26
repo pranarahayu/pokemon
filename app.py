@@ -16,7 +16,7 @@ for i in idx:
   data.append(response.content)
 
 n_rows = 1 + len(data) // int(n_cols)
-rows = [st.container() for _ in range(n_rows)]
+rows = [st.container(border=True) for _ in range(n_rows)]
 cols_per_row = [r.columns(n_cols) for r in rows]
 cols = [column for row in cols_per_row for column in row]
 
