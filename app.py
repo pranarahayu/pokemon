@@ -23,9 +23,6 @@ with col2:
       name.append(nama['name'].title())
     for j, k in zip(idx, name):
       conn.table("temp_pokemon").insert([{"id":j,"pokemon":k}], count="None").execute()
-
-with st.expander("About this app"):
-  st.markdown("Guess who, but Pokemon.")
     
 rose = conn.query("*", table="temp_pokemon", ttl="10m").execute()
 df = pd.DataFrame(rose.data)
@@ -48,3 +45,6 @@ cols = [column for row in cols_per_row for column in row]
 
 for image_index, data in enumerate(data):
   cols[image_index].image(data, caption=names[image_index])
+
+with st.expander("About this app"):
+  st.markdown("Guess who, but Pokemon.")
