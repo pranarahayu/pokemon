@@ -8,10 +8,14 @@ st.title('Guess Who? - Pokemon Edition')
 
 with st.sidebar:
   st.header("Regenerate Pokemon")
+  pkm = st.text_input('Choose your Pokemon!')
+  st.write(pkm)
   with st.expander("About this app"):
     st.markdown("Guess who, but Pokemon.")
 
 idx = random.sample(range(1, 906), 30)
+fixed = "https://github.com/PokeAPI/sprites/blob/ca5a7886c10753144e6fae3b69d45a4d42a449b4/sprites/pokemon/0.png?raw=true"
+fixed_r = requests.get(fixed)
 
 n_cols = 6
 data = []
