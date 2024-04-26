@@ -22,7 +22,7 @@ with st.sidebar:
       for item in nama['forms']:
         name.append(item['name'].title())
     for j, k in zip(idx, name):
-      conn.table("temp_pokemon").insert([{"id":idx[j],"pokemon":name[k]}], count="None").execute()
+      conn.table("temp_pokemon").insert([{"id":j,"pokemon":k}], count="None").execute()
   with st.expander("About this app"):
     st.markdown("Guess who, but Pokemon.")
     
