@@ -4,6 +4,7 @@ import random
 import pprint as pp
 import pandas as pd
 from st_supabase_connection import SupabaseConnection
+from PIL import Image
 
 st.set_page_config(page_title='Match Center', layout='centered')
 st.title('Guess Who? - Pokemon Edition')
