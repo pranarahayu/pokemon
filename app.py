@@ -32,7 +32,7 @@ df = df.tail(30).reset_index(drop=True)
 #fixed_r = requests.get(fixed)
 
 names = df['pokemon'].tolist()
-elim = st.multiselect("Eliminate Pokemon", names)
+elim = st.multiselect("Eliminate Pokemon", names, placeholder="Choose a Pokemon(s)")
 for i in range(len(df)):
   for j in elim:
     if (df['pokemon'][i]==j):
