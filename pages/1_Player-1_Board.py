@@ -15,7 +15,7 @@ df = pd.DataFrame(rose.data)
 df = df.tail(30).reset_index(drop=True)
 
 names = df['pokemon'].tolist()
-elim = st.multiselect("Eliminate Pokemon", names, placeholder="Choose a Pokemon(s)")
+elim = st.multiselect("Eliminate Pokémon", names, placeholder="Choose a Pokémon(s)")
 for i in range(len(df)):
   for j in elim:
     if (df['pokemon'][i]==j):
