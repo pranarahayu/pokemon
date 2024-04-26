@@ -11,6 +11,8 @@ st.title('Guess Who? - Pokemon Edition')
 
 conn = st.connection("supabase",type=SupabaseConnection)
 
+with st.expander("How to Play?"):
+  st.markdown("Placeholder.")
 col1, col2, col3 = st.columns(3)
 with col2:
   if st.button('Re-Generate Pokemon'):
