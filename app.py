@@ -29,7 +29,7 @@ with st.sidebar:
         nama = responsex.json()
         for item in nama['forms']:
           name.append(item['name'].title())
-      conn.table("temp_pokemon").insert([{"id":idx,"pokemon":name], count="None").execute()
+      conn.table("temp_pokemon").insert([{"id":idx,"pokemon":name}], count="None").execute()
   with st.expander("About this app"):
     st.markdown("Guess who, but Pokemon.")
     
