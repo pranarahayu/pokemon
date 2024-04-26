@@ -6,12 +6,13 @@ import pandas as pd
 from st_supabase_connection import SupabaseConnection
 from PIL import Image
 
-st.set_page_config(page_title='Match Center', layout='centered')
+st.set_page_config(page_title='Home Page', layout='centered')
 st.title('Guess Who? - Pokemon Edition')
 
 conn = st.connection("supabase",type=SupabaseConnection)
 
-with st.sidebar:
+col1, col2, col3 = st.columns(3)
+with col2:
   if st.button('Regenerate Pokemon'):
     idx = random.sample(range(1, 906), 30)
     name = []
@@ -22,20 +23,15 @@ with st.sidebar:
       name.append(nama['name'].title())
     for j, k in zip(idx, name):
       conn.table("temp_pokemon").insert([{"id":j,"pokemon":k}], count="None").execute()
-  with st.expander("About this app"):
-    st.markdown("Guess who, but Pokemon.")
+
+with st.expander("About this app"):
+  st.markdown("Guess who, but Pokemon.")
     
 rose = conn.query("*", table="temp_pokemon", ttl="10m").execute()
 df = pd.DataFrame(rose.data)
 df = df.tail(30).reset_index(drop=True)
 
 names = df['pokemon'].tolist()
-elim = st.multiselect("Eliminate Pokemon", names, placeholder="Choose a Pokemon(s)")
-for i in range(len(df)):
-  for j in elim:
-    if (df['pokemon'][i]==j):
-      df['id'][i]=0
-
 datas = df['id'].tolist()
 data = []
 for i in datas:
