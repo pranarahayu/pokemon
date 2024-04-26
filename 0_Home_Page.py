@@ -7,7 +7,7 @@ from st_supabase_connection import SupabaseConnection
 from PIL import Image
 
 st.set_page_config(page_title='Home Page', layout='centered')
-st.title('Guess Who? - Pokemon Edition')
+st.title('Guess Who? - Pokémon Edition')
 
 conn = st.connection("supabase",type=SupabaseConnection)
 
@@ -15,7 +15,7 @@ with st.expander("How to Play?"):
   st.markdown("Placeholder.")
 col1, col2, col3 = st.columns(3)
 with col2:
-  if st.button('Re-Generate Pokemon'):
+  if st.button('Re-Generate Pokémon'):
     idx = random.sample(range(1, 906), 30)
     name = []
     for i in idx:
@@ -26,7 +26,7 @@ with col2:
     for j, k in zip(idx, name):
       conn.table("temp_pokemon").insert([{"id":j,"pokemon":k}], count="None").execute()
 
-st.markdown("### Pokemons")
+st.markdown("### Pokémons")
 rose = conn.query("*", table="temp_pokemon", ttl="10m").execute()
 df = pd.DataFrame(rose.data)
 df = df.tail(30).reset_index(drop=True)
