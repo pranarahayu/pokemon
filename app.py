@@ -16,14 +16,8 @@ with st.sidebar:
   with col1:
     if st.button('Regenerate Pokemon'):
       idx = random.sample(range(1, 906), 30)
-      data = []
       name = []
       for i in idx:
-        url = "https://github.com/PokeAPI/sprites/blob/ca5a7886c10753144e6fae3b69d45a4d42a449b4/sprites/pokemon/{id}.png?raw=true"
-        pokemon_id = str(i)
-        response = requests.get(url.format(id=pokemon_id))
-        data.append(response.content)
-  
         url2 = "https://pokeapi.co/api/v2/pokemon/{}/".format(i)
         responsex = requests.get(url2)
         nama = responsex.json()
@@ -43,11 +37,18 @@ fixed_r = requests.get(fixed)
 datas = df['id'].tolist()
 names = df['pokemon'].tolist()
 
+data = []
+for i in datas:
+  url = "https://github.com/PokeAPI/sprites/blob/ca5a7886c10753144e6fae3b69d45a4d42a449b4/sprites/pokemon/{id}.png?raw=true"
+  pokemon_id = str(i)
+  response = requests.get(url.format(id=pokemon_id))
+  data.append(response.content)
+
 n_cols = 6
-n_rows = 1 + len(datas) // int(n_cols)
+n_rows = 1 + len(data) // int(n_cols)
 rows = [st.container() for _ in range(n_rows)]
 cols_per_row = [r.columns(n_cols) for r in rows]
 cols = [column for row in cols_per_row for column in row]
 
-for image_index, datas in enumerate(datas):
-  cols[image_index].image(datas, caption=names[image_index])
+for image_index, data in enumerate(data):
+  cols[image_index].image(data, caption=names[image_index])
