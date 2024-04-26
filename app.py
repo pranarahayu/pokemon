@@ -5,9 +5,9 @@ import random
 st.set_page_config(page_title='Match Center', layout='centered')
 st.title('Guess Who? - Pokemon Edition')
 
-idx = random.sample(range(1, 1026), 25)
+idx = random.sample(range(1, 1026), 30)
 
-n_cols = 5
+n_cols = 6
 data = []
 for i in idx:
   url = "https://github.com/PokeAPI/sprites/blob/ca5a7886c10753144e6fae3b69d45a4d42a449b4/sprites/pokemon/{id}.png?raw=true"
