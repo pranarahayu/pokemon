@@ -30,7 +30,7 @@ for i in idx:
   responsex = requests.get(url2)
   nama = responsex.json()
   for item in nama['forms']:
-    name.append(item['name'][0].title())
+    name.append(item['name'].title())
 
 n_rows = 1 + len(data) // int(n_cols)
 rows = [st.container() for _ in range(n_rows)]
