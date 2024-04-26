@@ -21,5 +21,5 @@ cols_per_row = [r.columns(n_cols) for r in rows]
 cols = [column for row in cols_per_row for column in row]
 
 for image_index, data in enumerate(data):
-    cols[image_index].image(data)
-    st.write('test aja')
+  cols[image_index].image(data)
+st.write('test aja')
