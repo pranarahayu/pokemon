@@ -12,18 +12,16 @@ conn = st.connection("supabase",type=SupabaseConnection)
 
 with st.sidebar:
   st.header("Regenerate Pokemon")
-  col1, col2 = st.columns(2)
-  with col1:
-    if st.button('Regenerate Pokemon'):
-      idx = random.sample(range(1, 906), 30)
-      name = []
-      for i in idx:
-        url2 = "https://pokeapi.co/api/v2/pokemon/{}/".format(i)
-        responsex = requests.get(url2)
-        nama = responsex.json()
-        for item in nama['forms']:
-          name.append(item['name'].title())
-      conn.table("temp_pokemon").insert([{"id":idx,"pokemon":name}], count="None").execute()
+  if st.button('Regenerate Pokemon'):
+    idx = random.sample(range(1, 906), 30)
+    name = []
+    for i in idx:
+      url2 = "https://pokeapi.co/api/v2/pokemon/{}/".format(i)
+      responsex = requests.get(url2)
+      nama = responsex.json()
+      for item in nama['forms']:
+        name.append(item['name'].title())
+    conn.table("temp_pokemon").insert([{"id":idx,"pokemon":name}], count="None").execute()
   with st.expander("About this app"):
     st.markdown("Guess who, but Pokemon.")
     
