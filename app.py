@@ -6,7 +6,7 @@ import pprint as pp
 st.set_page_config(page_title='Match Center', layout='centered')
 st.title('Guess Who? - Pokemon Edition')
 
-idx = random.sample(range(1, 1026), 30)
+idx = random.sample(range(1, 152), 30)
 
 n_cols = 6
 data = []
