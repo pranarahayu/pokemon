@@ -22,6 +22,7 @@ with st.sidebar:
       name.append(nama['name'].title())
     for j, k in zip(idx, name):
       conn.table("temp_pokemon").insert([{"id":j,"pokemon":k}], count="None").execute()
+  elim = fixed_numbers = st.multiselect("Eliminate Pokemon", name)
   with st.expander("About this app"):
     st.markdown("Guess who, but Pokemon.")
     
