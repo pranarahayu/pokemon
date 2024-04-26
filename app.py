@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import random
 import pprint as pp
-import pandas
+import pandas as pd
 from st_supabase_connection import SupabaseConnection
 
 st.set_page_config(page_title='Match Center', layout='centered')
