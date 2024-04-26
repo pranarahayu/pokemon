@@ -5,7 +5,6 @@ import random
 st.set_page_config(page_title='Match Center', layout='wide')
 st.markdown('# Guess Who? - Pokemon Edition')
 
-@st.cache_data(ttl=600)
 idx = random.sample(range(1, 1026), 30)
 
 row1 = st.columns(5)
