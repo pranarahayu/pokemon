@@ -28,5 +28,5 @@ for i in idx:
     pokemon_id = str(i)
     response = requests.get(url.format(id=pokemon_id))
     for col in row1 + row2 + row3 + row4 + row5 + row6:
-        tile = col.container(height=100, width=100)
-        tile.image(response.content)
+        tile = col.container(height=100)
+        tile.image(response.content, , width=100)
