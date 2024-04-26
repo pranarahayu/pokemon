@@ -22,7 +22,6 @@ with st.sidebar:
       name.append(nama['name'].title())
     for j, k in zip(idx, name):
       conn.table("temp_pokemon").insert([{"id":j,"pokemon":k}], count="None").execute()
-  elim = fixed_numbers = st.multiselect("Eliminate Pokemon", name)
   with st.expander("About this app"):
     st.markdown("Guess who, but Pokemon.")
     
@@ -51,3 +50,5 @@ cols = [column for row in cols_per_row for column in row]
 
 for image_index, data in enumerate(data):
   cols[image_index].image(data, caption=names[image_index])
+
+elim = fixed_numbers = st.multiselect("Eliminate Pokemon", names)
