@@ -16,12 +16,11 @@ for i in idx:
   pokemon_id = str(i)
   response = requests.get(url.format(id=pokemon_id))
   data.append(response.content)
-
-for i in idx:
-  url = "https://pokeapi.co/api/v2/pokemon/{}/".format(i)
-  response = requests.get(url)
-  data = response.json()
-  for item in data['forms']:
+  
+  url2 = "https://pokeapi.co/api/v2/pokemon/{}/".format(i)
+  responsex = requests.get(url2)
+  nama = responsex.json()
+  for item in nama['forms']:
     name.append(item['name'].title())
 
 n_rows = 1 + len(data) // int(n_cols)
