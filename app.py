@@ -9,7 +9,7 @@ st.title('Guess Who? - Pokemon Edition')
 with st.sidebar:
   st.header("Regenerate Pokemon")
   pkm = st.text_input('Choose your Pokemon!')
-  st.write(pkm)
+  st.write(pkm+', I choose you!')
   with st.expander("About this app"):
     st.markdown("Guess who, but Pokemon.")
 
