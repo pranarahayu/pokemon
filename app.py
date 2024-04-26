@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 import random
 
-st.set_page_config(page_title='Match Center', layout='wide')
+st.set_page_config(page_title='Match Center', layout='centered')
 st.markdown('# Guess Who? - Pokemon Edition')
 
 idx = random.sample(range(1, 1026), 30)
