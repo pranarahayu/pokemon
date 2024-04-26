@@ -21,8 +21,10 @@ with st.sidebar:
       nama = responsex.json()
       for item in nama['forms']:
         name.append(item['name'].title())
-    for j in enumerate(idx):
-      conn.table("temp_pokemon").insert([{"id":idx[j],"pokemon":name[j]}], count="None").execute()
+    dict = {'id':idx, 'pokemon':name}
+    temp = pd.DataFrame(dict)
+    for j in range(len(temp)):
+      conn.table("temp_pokemon").insert([{"id":temp['id'][j],"pokemon":temp['pokemon'][j]}], count="None").execute()
   with st.expander("About this app"):
     st.markdown("Guess who, but Pokemon.")
     
