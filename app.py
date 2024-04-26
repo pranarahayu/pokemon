@@ -3,7 +3,7 @@ import requests
 import random
 
 st.set_page_config(page_title='Match Center', layout='centered')
-st.title('# Guess Who? - Pokemon Edition')
+st.title('Guess Who? - Pokemon Edition')
 
 idx = random.sample(range(1, 1026), 25)
 
