@@ -19,8 +19,7 @@ with st.sidebar:
       url2 = "https://pokeapi.co/api/v2/pokemon/{}/".format(i)
       responsex = requests.get(url2)
       nama = responsex.json()
-      for item in nama['forms']:
-        name.append(item['name'].title())
+      name.append(data['name'].title())
     for j, k in zip(idx, name):
       conn.table("temp_pokemon").insert([{"id":j,"pokemon":k}], count="None").execute()
   with st.expander("About this app"):
